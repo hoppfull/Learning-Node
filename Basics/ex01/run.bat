@@ -1,5 +1,5 @@
 @ECHO OFF
 
-CALL node bin/main.js
+CALL node main
 
 PAUSE
