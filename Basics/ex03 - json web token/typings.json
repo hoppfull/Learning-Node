@@ -1,0 +1,8 @@
+{
+  "name": "ex03",
+  "dependencies": {},
+  "globalDependencies": {
+    "jsonwebtoken": "registry:dt/jsonwebtoken#0.0.0+20160627133958",
+    "node": "registry:dt/node#6.0.0+20160621231320"
+  }
+}

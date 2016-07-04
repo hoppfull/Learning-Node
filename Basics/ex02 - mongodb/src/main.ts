@@ -1,5 +1,3 @@
-import http = require('http')
-import fs = require('fs')
 import mongodb = require('mongodb')
 
 const mongoClient = mongodb.MongoClient
