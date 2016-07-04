@@ -1,0 +1,12 @@
+{
+  "name": "ex04",
+  "version": "1.0.0",
+  "description": "Express example.",
+  "author": "hoppfull@gmail.com",
+  "license": "MIT",
+  "readme": "whatevs",
+  "repository": {},
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
