@@ -5,7 +5,7 @@ const PORT = 8000
 
 app.use(express.static('public'))
 
-app.get('/tjosan', (req, res) => {
+app.get('tjosan', (req, res) => {
     res.send("alert from server! omg!")
 })
 
