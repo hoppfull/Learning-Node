@@ -39,3 +39,6 @@ typings
 
 # Compilation directories
 [Bb]in/
+
+# Database data directories
+[Dd]ata/

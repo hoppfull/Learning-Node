@@ -1,0 +1,12 @@
+{
+  "name": "ex02",
+  "version": "1.0.0",
+  "description": "Database example.",
+  "author": "hoppfull@gmail.com",
+  "license": "MIT",
+  "readme": "whatevs",
+  "repository": {},
+  "dependencies": {
+    "mongodb": "^2.1.18"
+  }
+}
