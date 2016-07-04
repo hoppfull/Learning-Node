@@ -1,5 +1,5 @@
 @ECHO OFF
 
-CALL node main
+CALL node bin/main
 
 PAUSE

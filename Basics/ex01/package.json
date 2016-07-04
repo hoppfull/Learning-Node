@@ -1,0 +1,10 @@
+{
+  "name": "ex01",
+  "version": "1.0.0",
+  "description": "Server example.",
+  "author": "hoppfull@gmail.com",
+  "license": "MIT",
+  "readme": "whatevs",
+  "repository": {},
+  "dependencies": {}
+}
