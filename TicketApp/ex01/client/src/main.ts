@@ -1,1 +1,1 @@
-window.alert("tjosan!")
+console.log("leverpastej")
