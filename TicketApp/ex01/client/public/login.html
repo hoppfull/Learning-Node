@@ -1,0 +1,19 @@
+<table id="login_view" ng-controller="logincontroller">
+    <tr>
+        <td class="fieldlabel">email:</td>
+        <td><input type="text" ng-model="email"></td>
+    </tr>
+    <tr>
+        <td class="fieldlabel">password:</td>
+        <td><input type="password" ng-model="password"></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center" class="error_message">error!</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <button ng-click="login()">Sign in</button>
+            <button ng-click="register()">Sign up</button>
+        </td>
+    </tr>
+</table>

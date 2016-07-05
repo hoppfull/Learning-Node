@@ -5,14 +5,26 @@
 <head>
     <meta charset="utf-8">
     <title>TicketApp</title>
+    <!--Styles:-->
     <link rel="stylesheet" href="xss/main.css">
-    <script src="scripts/main.js" defer></script>
+    <link rel="stylesheet" href="xss/login.css">
+
+    <!--Order dependent app scripts:-->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/loginservice.js"></script>
+    <script src="scripts/logincontroller.js"></script>
+    <script src="scripts/routeprovider.js"></script>
+    <script src="scripts/registercontroller.js"></script>
+    <script src="scripts/ticketappcontroller.js"></script>
+
+    <!--Order dependent libraries:-->
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
 </head>
 
-<body>
-
-    tjolahej
-
+<body onload="main()" ng-app="app">
+    <ng-view></ng-view>
 </body>
 
 </html>

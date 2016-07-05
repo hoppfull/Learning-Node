@@ -4,5 +4,8 @@
         "module": "commonjs",
         "noImplicitAny": true,
         "outDir": "public/scripts"
-    }
+    },
+    "exclude": [
+        "public/scripts"
+    ]
 }

@@ -1,4 +1,13 @@
 body {
-    background: black;
-    color: white;
+    font-family: arial;
+}
+
+.error_message {
+    color: orangered;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.fieldlabel {
+    text-align: right;
 }
