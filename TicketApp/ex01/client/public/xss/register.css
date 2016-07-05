@@ -1,0 +1,7 @@
+.field_validated {
+    background: lawngreen;
+}
+
+.field_invalidated {
+    background: red;
+}

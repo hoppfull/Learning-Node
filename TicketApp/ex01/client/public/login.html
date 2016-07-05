@@ -8,7 +8,9 @@
         <td><input type="password" ng-model="password"></td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align: center" class="error_message">error!</td>
+        <td colspan="2" style="text-align: center" ng-class="error ? 'error_message' : 'hidden error_message'">
+            {{ errormsg }}
+        </td>
     </tr>
     <tr>
         <td colspan="2" style="text-align: center">

@@ -1,7 +1,13 @@
 module logincontroller {
     export function init(app: ng.IModule) {
         app.controller('logincontroller', function ($scope: ILoginScope) {
-            
+            $scope.errormsg = "unknown error!"
+
+            $scope.login = () => {
+
+            }
+
+            $scope.register = () => { location.href = "#/register" }
         })
     }
 
@@ -9,6 +15,7 @@ module logincontroller {
         email: string
         password: string
         errormsg: string
+        error: boolean
         login: () => void
         register: () => void
     }

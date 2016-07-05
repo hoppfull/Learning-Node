@@ -1,3 +1,29 @@
-<span ng-controller="registercontroller">
-
-</span>
+<table id="register_view" ng-controller="registercontroller">
+    <tr>
+        <td class="fieldlabel">email:</td>
+        <td><input ng-class="validateEmail(email1) ? 'field_validated' : 'field_invalidated'" type="text" ng-model="email1"></td>
+    </tr>
+    <tr>
+        <td class="fieldlabel">repeat email:</td>
+        <td><input ng-class="emailIsValid && email1 === email2 ? 'field_validated' : 'field_invalidated'" type="text" ng-model="email2"></td>
+    </tr>
+    <tr>
+        <td class="fieldlabel">password:</td>
+        <td><input ng-class="validatePassword(password1) ? 'field_validated' : 'field_invalidated'" type="password" ng-model="password1"></td>
+    </tr>
+    <tr>
+        <td class="fieldlabel">repeat password:</td>
+        <td><input ng-class="passwordIsValid && password1 === password2 ? 'field_validated' : 'field_invalidated'" class="field_invalidated" type="password" ng-model="password2"></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center" ng-class="error ? 'error_message' : 'hidden error_message'">
+            {{ errormsg }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <button ng-click="cancel()">Cancel</button>
+            <button ng-disabled="!(emailIsValid && passwordIsValid && email1 === email2 && password1 === password2)" ng-click="register()">Register</button>
+        </td>
+    </tr>
+</table>
