@@ -1,11 +1,11 @@
 {
-    "name": "ticketapp",
-    "version": "1.0.0",
-    "description": "example of client-server relationship, client-side",
-    "license": "MIT",
-    "readme": "nothing",
-    "repository": {},
-    "dependencies": {
-        
-    }
+  "name": "ticketapp",
+  "version": "1.0.0",
+  "description": "example of client-server relationship, client-side",
+  "license": "MIT",
+  "readme": "nothing",
+  "repository": {},
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
