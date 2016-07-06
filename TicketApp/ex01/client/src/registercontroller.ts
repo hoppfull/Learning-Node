@@ -11,7 +11,7 @@ module registercontroller {
             $scope.cancel = () => { location.href = "#/login" }
 
             $scope.register = () => {
-
+                
             }
 
             $scope.validateEmail = email => {
