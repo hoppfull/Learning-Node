@@ -6,6 +6,9 @@
   "readme": "nothing",
   "repository": {},
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.0.1",
+    "mongodb": "^2.1.18"
   }
 }
