@@ -4,17 +4,10 @@ var logincontroller;
         app.controller('logincontroller', function ($scope, $http) {
             $scope.errormsg = "unknown error!";
             $scope.login = () => {
-                // $http.post('/login', { email: "tjosan", password: "hoppsan" })
-                //     .then(response => {
-                //         console.log(response.data)
-                //     })
-                $http({
-                    url: '/login',
-                    method: 'POST',
-                    data: { x: 0, y: "hello" },
-                    headers: { 'Content-Type': 'application/json' }
-                }).then(response => {
-                    console.log(response.data);
+                $http.post('/login', { email: "admin@email.com", password: "root" })
+                    .then(response => {
+                    const data = response.data;
+                    console.log(data.token);
                 });
             };
             $scope.register = () => { location.href = "#/register"; };
