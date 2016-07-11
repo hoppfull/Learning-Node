@@ -16,7 +16,6 @@ app.use(bodyParser.json())
 mongoClient.connect(DB_CONNECTION, (err, db) => {
     app.post('/login', function (req, res) {
         // POST request for session token
-        console.log(req.body)
         db.collection('accounts')
             .find({ email: req.body.email, password: req.body.password })
             .limit(1).next((err, account) => {
@@ -29,15 +28,20 @@ mongoClient.connect(DB_CONNECTION, (err, db) => {
 
     app.post('/account', function (req, res) {
         // POST request for account data (requires session token)
-        const user = jwt.verify(req.body.token, PRIVATE_KEY)
-        db.collection('accounts')
-            .find({ email: user.email, password: user.password })
-            .limit(1).next((err, account) => {
-                res.write(JSON.stringify({
-                    balance: account ? account.balance : null
-                }))
-                res.end()
-            })
+        if (req.body.token) {
+            const user = jwt.verify(req.body.token, PRIVATE_KEY)
+            db.collection('accounts')
+                .find({ email: user.email, password: user.password })
+                .limit(1).next((err, account) => {
+                    res.write(JSON.stringify({
+                        balance: account ? account.balance : null
+                    }))
+                    res.end()
+                })
+        } else {
+            res.write(JSON.stringify({ balance: null }))
+            res.end()
+        }
     })
 
     app.post('/register', function (req, res) {
@@ -61,10 +65,39 @@ mongoClient.connect(DB_CONNECTION, (err, db) => {
 
     app.post('/deposit', function (req, res) {
         // POST request to increase account.balance by given amount
+        if (req.body.token && depositIsValid(req.body.amount)) {
+            const user = jwt.verify(req.body.token, PRIVATE_KEY)
+            db.collection('accounts')
+                .update({
+                    email: user.email,
+                    password: user.password
+                }, { $inc: { balance: req.body.amount } }, (err, result) => {
+                    res.write(JSON.stringify({ success: true }))
+                    res.end()
+                })
+        } else {
+            res.write(JSON.stringify({ success: false }))
+            res.end()
+        }
+
     })
 
     app.post('/withdraw', function (req, res) {
         // POST request to decrease account.balance by given amount
+        if (req.body.token && withdrawIsValid(req.body.amount)) {
+            const user = jwt.verify(req.body.token, PRIVATE_KEY)
+            db.collection('accounts')
+                .update({
+                    email: user.email,
+                    password: user.password
+                }, { $inc: { balance: -req.body.amount } }, (err, result) => {
+                    res.write(JSON.stringify({ success: true }))
+                    res.end()
+                })
+        } else {
+            res.write(JSON.stringify({ success: false }))
+            res.end()
+        }
     })
 })
 
@@ -78,4 +111,12 @@ function emailIsValid(email) {
 
 function passwordIsValid(password) {
     return true
+}
+
+function depositIsValid(amount) {
+    return amount > 0
+}
+
+function withdrawIsValid(amount) {
+    return amount > 0
 }
