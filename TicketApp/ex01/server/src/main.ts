@@ -7,7 +7,7 @@ const PRIVATE_KEY = 'myprivatekey'
 const PORT = 8000
 
 const app = express()
-const mongoClient = mongodb.MongoClient;
+const mongoClient = mongodb.MongoClient
 
 
 app.use(bodyParser.json())
