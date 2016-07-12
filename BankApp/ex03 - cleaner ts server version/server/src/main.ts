@@ -1,5 +1,6 @@
 import data = require('./dataValidation')
 import repo = require('./repository')
+import request = require('./request')
 
 import express = require('express')
 import jwt = require('jsonwebtoken')
@@ -17,21 +18,24 @@ app.use(express.static('client')).listen(PORT, () => {
 repo.connect('mongodb://localhost:27017/ex03bankapp')
     .then(db => {
         const findAccount = repo.retrieveAccount(db)
+        type responseSig = (code: number, msg: string) => void
+        const post = <T>(name: string, dataParser: (reqBody: {}) => T, handler: (data: T, res: responseSig) => void) =>
+            app.post(name, (req, res) =>
+                handler(dataParser(req.body), (code, msg) => {
+                    res.statusCode = code
+                    res.statusMessage = msg
+                    res.end()
+                }))
 
-        app.post('/register', (req, res) => {
-            const credentials = data.parseLoginCredentials(req.body)
+        post<ILogin>('/register', request.parseLogin, (credentials, response) => {
             if (credentials) {
                 const {email, password} = credentials
                 findAccount({ email }, (err, account) => {
-                    if (!account)
+                    if (!account) {
                         repo.createAccount(db, { email, password, balance: 0 })
-                    else {
-
-                    }
+                        response(201, "Account created")
+                    } else response(409, "Account already exists")
                 })
-            } else {
-
-            }
-
+            } else response(401, "Invalid credentials")
         })
     }).catch(console.log)

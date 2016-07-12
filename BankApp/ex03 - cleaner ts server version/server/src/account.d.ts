@@ -1,8 +1,8 @@
-interface ILoginCredentials {
+interface ILogin {
     email: string
     password: string
 }
 
-interface IAccount extends ILoginCredentials {
+interface IAccount extends ILogin {
     balance: number
 }
