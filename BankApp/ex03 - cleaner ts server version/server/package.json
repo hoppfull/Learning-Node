@@ -1,0 +1,15 @@
+{
+    "name": "ex03bankapp",
+    "version": "1.0.0",
+    "description": "example of client-server relationship",
+    "author": "hoppfull@gmail.com",
+    "license": "MIT",
+    "readme": "whatevs",
+    "repository": {},
+    "dependencies": {
+        "body-parser": "^1.15.2",
+        "jsonwebtoken": "^7.0.1",
+        "mongodb": "^2.1.18",
+        "express": "^4.14.0"
+    }
+}
