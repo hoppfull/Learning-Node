@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server source code",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hoppfull/Learning-Node.git"
+  },
+  "author": "hoppfull@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^4.0.35",
+    "express": "^4.15.2"
+  }
+}
