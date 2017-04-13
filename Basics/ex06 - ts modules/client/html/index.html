@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Module bundling</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.12/system.js" integrity="sha256-Aoj16fina1TqHL4PHoZ7swSL79hpfmgRSild8mste+U="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js" integrity="sha256-jjFsm9SMUJvCL2OVD1ocpy5ATDfcE5i4lUeYn6yiGCg="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js" integrity="sha256-lLTXVU5NHLl101VgD3LswV6ZgI2PjSjZ5dVzhBcq52k="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js" integrity="sha256-4DRNdBX+quo7fRIFuR9yhr157hq/9FcAsHRDNQEXZSM="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux-thunk/2.2.0/redux-thunk.min.js" integrity="sha256-2xw5MpPcdu82/nmW2XQ6Ise9hKxziLWV2GupkS9knuw="
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script>
+        // Alternate solution:
+        // SystemJS.config({
+        //     map: {
+        //         'redux': 'https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js'
+        //     }
+        // })
+        System.set('redux', System.newModule(Redux))
+        System.set('react', System.newModule(React))
+        System.set('react-dom', System.newModule(ReactDOM))
+        System.set('redux-thunk', System.newModule(ReduxThunk))
+        const appPromise = System.import('App')
+    </script>
+</head>
+
+<body onload="appPromise.then(m => m.App.main(['kekistan']))">
+</body>
+
+</html>

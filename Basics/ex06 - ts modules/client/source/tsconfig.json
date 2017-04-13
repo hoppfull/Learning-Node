@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "moduleResolution": "node",
+        "target": "es6",
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "outFile": "../bin/app.js",
+        "jsx": "react"
+    }
+}
